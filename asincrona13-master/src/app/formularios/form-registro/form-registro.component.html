@@ -1,0 +1,51 @@
+<body class="text-center">
+
+    <!-- RETO EJERCICIO 1 -->
+    <section  class="bg-secondary" >
+
+        <h2 [ngStyle]="{'color':'white','background-color':'#000000','text-align':'center'}">RETO 1</h2>
+    
+            <label>Valor:
+                <input type="text" [formControl]="name">
+            </label>
+    
+            <p *ngIf="name && name.value" [ngStyle]="{'color':'white','background-color':'#000000','text-align':'center'}">Resultado: {{ name.value | uppercase }}</p>
+    </section>
+
+    <!-- RETO EJERCICIO 2 -->
+
+<section class="bg-secondary">
+    <h2 [ngStyle]="{'color':'white','background-color':'#000000'}">RETO 2</h2>
+
+<h3>CURRENCY PIPES</h3>
+<p >Valor: <input [(ngModel)]="num1" type="number"></p>
+
+<p>
+<select [(ngModel)]="op">
+<option value="ninguno">Selecciona el tipo de moneda</option>
+<option value="usd">USD</option>
+<option value="eur">EUR</option>
+<option value="pen">PEN</option>
+<option value="mxn">MXN</option>
+</select>
+</p>
+
+<span [ngSwitch]="op">
+<span *ngSwitchCase="'usd'">{{num1 | currency: 'USD'}}</span>
+<span *ngSwitchCase="'eur'">{{num1 | currency: 'EUR'}}</span>
+<span *ngSwitchCase="'pen'">{{num1 | currency: 'PEN'}}</span>
+<span *ngSwitchCase="'mxn'">{{num1 | currency: 'MXN'}}</span>
+<span *ngSwitchDefault>No selecciono ninguna operacion</span>
+</span>
+</section>
+
+<!-- ejerccio 3 -->
+
+<section>
+    <h2>Información</h2>
+    <pre>{{ persona | json }}</pre>
+    <pre>{{ persona2 | json }}</pre>
+    <pre>{{ persona3 | json }}</pre>
+</section>
+
+</body>
